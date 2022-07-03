@@ -28,4 +28,24 @@ describe("/GET message", () => {
             });
          });
      });
+
+
+     describe("/POST message", () => {
+      it("it should GET a message", (done) => {
+         var text = 'Testing todo route';
+      chai.request(server)
+          .post("/message")
+          .send({ from: "KIX", to: "SFO" })
+          .end((err, res) => {
+
+            console.log(err)
+
+           // console.log(res)
+        //    expect(response.status).to.eql(200);
+                done();
+             });
+          });
+      });
+
+
 });

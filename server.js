@@ -1,9 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+app.use(bodyParser.json());
 const port = 3300;
 app.get('/message', function (req, res) {
      res.send('This is the message');
 });
+
+app.post('/message', function (req, res) {
+
+     console.log('This is the message'+req.body.from);
+     res.send(req.body);
+});
+
 app.get('/media', function (req, res) {
 var response = {
 podcasts: [{
